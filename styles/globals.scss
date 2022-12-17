@@ -1,7 +1,13 @@
 @import './reset.scss';
+@import './variables/main.scss';
 
-body{
-   font-family: 'Open Sans';
-   font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+html{
+   font-size: calc(14px + (24 - 14) * ((100vw - 300px) / (2400 - 300)));
 }
 
+body{
+   font-family: $font-base;
+   button:focus{
+      outline-color: $color-yellow;
+   }
+}

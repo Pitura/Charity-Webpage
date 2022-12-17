@@ -1,0 +1,20 @@
+@import 'styles/variables/main.scss';
+
+.custom_header_box{
+   max-width: max-content;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 25px;
+   .custom_header_style{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      letter-spacing: -0.02rem;
+      font-size: 1.5rem;
+      line-height: 2.1rem;
+      text-align: center;
+   }
+}
