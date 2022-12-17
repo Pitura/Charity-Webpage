@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import style from './LandingPage.module.scss';
-import { AboutUs, HeaderSection, MainSection } from "./LPComponents";
+import { AboutUs, HeaderSection, MainSection, WhoDoWeHelp } from "./LPComponents";
 
 const LandingPage:FC = () => {
    return (
@@ -9,6 +9,7 @@ const LandingPage:FC = () => {
          <HeaderSection />
          <MainSection />
          <AboutUs />
+         <WhoDoWeHelp />
       </div>
    );
 }
