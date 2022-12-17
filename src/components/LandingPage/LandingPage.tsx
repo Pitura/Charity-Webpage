@@ -12,5 +12,5 @@ const LandingPage:FC = () => {
       </div>
    );
 }
- 
+
 export default LandingPage;

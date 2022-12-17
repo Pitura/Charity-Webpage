@@ -2,5 +2,56 @@
 
 .about_us_container{
    width: 100%;
-   min-height: 100vh;
+   min-height: 80vh;
+   display: flex;
+   align-items: flex-start;
+   margin-top: 80px;
+}
+.about_us_box{
+   width: 50%;
+   min-height: 80vh;
+   margin-right: auto;
+   background-color: $color-white;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   padding: 100px;
+   gap: 50px;
+   p{
+      font-size: 1.25rem;
+      line-height: 1.75rem;
+      letter-spacing: -0.03rem;
+      text-align: center;
+   }
+   img{
+      margin-left: auto;
+   }
+}
+.about_us_image{
+   width: 50%;
+   min-height: 80vh;
+   background-image: url('../../../../assets/People.jpg');
+   background-position: left 50% top;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+@media screen and (max-width: 1500px) {
+   .about_us_container{
+      flex-direction: column-reverse;
+      justify-content: flex-start;
+      align-items: center;
+      min-height: 100vh;
+   }
+   .about_us_box{
+      width: 100%;
+      min-height:50vh;
+      padding: 30px 20px;
+   }
+   .about_us_image{
+      width: 100%;
+      min-height:50vh;
+      background-position: center;
+   }
 }

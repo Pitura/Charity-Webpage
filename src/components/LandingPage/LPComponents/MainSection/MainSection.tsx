@@ -6,7 +6,7 @@ import { Shirt, Magnifier, Basket, Refresh } from "../../../../assets";
 
 const MainSection:FC = () => {
    return (
-      <section className={style.main_section_container}>
+      <section id="info" className={style.main_section_container}>
          <div className={style.statistics_box}>
             <div className={style.statistic}>
                <h3>10</h3>
