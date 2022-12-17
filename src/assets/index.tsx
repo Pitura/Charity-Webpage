@@ -15,5 +15,5 @@ export {default as Magnifier} from './Icon-3.svg';
 export {default as Refresh} from './Icon-4.svg';
 export {default as ArrowDown} from './Icon-Arrow-Down.svg';
 export {default as ArrowUp} from './Icon-Arrow-Up.svg';
-export {default as Insta} from './Instagram.svg';
+export {default as Instagram} from './Instagram.svg';
 export {default as Signature} from './Signature.svg';

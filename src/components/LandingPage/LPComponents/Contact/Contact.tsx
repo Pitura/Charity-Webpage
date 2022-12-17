@@ -5,7 +5,7 @@ import style from "./Contact.module.scss";
 
 const Contact:FC = () => {
    return (
-      <section className={style.contact_container}>
+      <section id="contact" className={style.contact_container}>
          <div className={style.contact_box}>
             <CustomHeader mainText="Skontaktuj się z nami"/>
             <form 
