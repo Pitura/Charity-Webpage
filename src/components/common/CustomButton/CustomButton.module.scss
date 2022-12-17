@@ -1,0 +1,23 @@
+@import "styles/variables/main.scss";
+
+.custom_button_style{
+   cursor: pointer;
+   font-family: $font-base;
+   font-size: 1.5rem;
+   line-height: 2rem;
+   font-weight: 300;
+   width: 12rem;
+   padding: 0.6rem 1.1rem;
+   text-transform: uppercase;
+   background-color: transparent;
+   border: 1px solid $color-gray-dark;
+   transition: 500ms;
+   scale: 1;
+   text-align: center;
+   &:hover{
+      transform-origin: center;
+      z-index: 1;
+      transform: scale(1.1);
+      background-color: rgb($color-yellow, 0.5);
+   }
+}

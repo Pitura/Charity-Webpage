@@ -20,31 +20,14 @@
    justify-content: center;
    align-items: center;
    gap: 65px;
-   padding-right: 200px;
+   padding-right: 10rem;
    .button_box{
       width: 100%;
       display: flex;
-      justify-content: space-between;
-      .button_style{
-         cursor: pointer;
-         font-family: $font-base;
-         font-size: 1.5rem;
-         line-height: 2rem;
-         font-weight: 300;
-         width: 48%;
-         padding: 13px 0;
-         text-transform: uppercase;
-         background-color: transparent;
-         border: 1px solid $color-gray-dark;
-         transition: 500ms;
-         scale: 1;
-         &:hover{
-            transform-origin: center;
-            z-index: 1;
-            transform: scale(1.1);
-            background-color: rgb($color-yellow, 0.5);
-         }
-      }
+      justify-content: center;
+      align-items: center;  
+      flex-wrap: wrap;
+      gap: 3rem;
    }
 }
 

@@ -1,8 +1,5 @@
 import { FC } from "react";
-import Image from "next/image";
-
-import { CustomHeader } from "../../../common";
-
+import { CustomButton, CustomHeader } from "../../../common";
 import style from "./HeaderSection.module.scss";
 
 const HeaderSection:FC = () => {
@@ -11,12 +8,8 @@ const HeaderSection:FC = () => {
          <div className={style.header_content}>
             <CustomHeader mainText="Zacznij pomagać!" secondaryText="Oddaj niechciane rzeczy w zaufane ręce"/>
             <div className={style.button_box}>
-               <button className={style.button_style}>
-                  Oddaj rzeczy
-               </button>
-               <button className={style.button_style}>
-                  Zorganizuj zbiórkę
-               </button>
+               <CustomButton text="Oddaj rzeczy"/>
+               <CustomButton text="Zorganizuj zbiórkę"/>
             </div>
          </div>
       </div>
