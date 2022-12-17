@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import Image from "next/image";
-import { Link } from 'react-scroll';
+import Link from "next/link";
+import { Link as ScrollLink } from 'react-scroll';
 
 import { Facebook, Instagram } from "../../assets";
 import style from './NavigationAndFooter.module.scss';
@@ -11,39 +12,48 @@ interface Props {
 
 const NavigationAndFooter:FC<Props> = ({children}) => {
    const [activeButton, setActiveButton] = useState<number>(1);
+   console.log(children);
    return (
       <>
          <nav className={style.navigation_box}>
             <div>
-               <button className={style.acc_management_btn}>Zaloguj</button>
-               <button className={style.acc_management_btn}>Załóż konto</button>
+               <Link
+                  href="login"
+               >
+                  <button className={style.acc_management_btn}>
+                     Zaloguj
+                  </button>
+               </Link>
+               <Link
+                  href="register"
+               >
+                  <button className={style.acc_management_btn}>
+                     Załóż konto
+                  </button>
+               </Link>
             </div>
             <ul>
                <li>
-                  <Link
+                  <ScrollLink
                      to="home"
-                     spy={true}
                      smooth={true}
-                     hashSpy={true}
                      offset={0}
                      duration={500}
+                     delay={500}
                      isDynamic={true}
                   >
                      <button 
                         onClick={() => setActiveButton(1)} 
                         className={`${style.navigation_btn} ${activeButton === 1 ? style.active_button : ''}`}
                      >
-                           Start
-                        </button>
-                  </Link>
-
+                        Start
+                     </button>
+                  </ScrollLink>
                </li>
                <li>
-                  <Link
+                  <ScrollLink
                         to="info"
-                        spy={true}
                         smooth={true}
-                        hashSpy={true}
                         offset={-50}
                         duration={500}
                         isDynamic={true}
@@ -54,14 +64,12 @@ const NavigationAndFooter:FC<Props> = ({children}) => {
                      >
                         O co Chodzi
                      </button>
-                  </Link>
+                  </ScrollLink>
                </li>
                <li>
-                  <Link
+                  <ScrollLink
                      to="about"
-                     spy={true}
                      smooth={true}
-                     hashSpy={true}
                      offset={-50}
                      duration={500}
                      isDynamic={true}
@@ -72,14 +80,12 @@ const NavigationAndFooter:FC<Props> = ({children}) => {
                      >
                         O nas
                      </button>
-                  </Link>
+                  </ScrollLink>
                </li>
                <li>
-                  <Link
+                  <ScrollLink
                      to="who"
-                     spy={true}
                      smooth={true}
-                     hashSpy={true}
                      offset={0}
                      duration={500}
                      isDynamic={true}
@@ -90,14 +96,12 @@ const NavigationAndFooter:FC<Props> = ({children}) => {
                      >
                         Fundacja i organizacje
                      </button>
-                  </Link>
+                  </ScrollLink>
                </li>
                <li>
-                  <Link
+                  <ScrollLink
                      to="contact"
-                     spy={true}
                      smooth={true}
-                     hashSpy={true}
                      offset={0}
                      duration={500}
                      isDynamic={true}
@@ -108,7 +112,7 @@ const NavigationAndFooter:FC<Props> = ({children}) => {
                      >
                         Kontakt
                      </button>
-                  </Link>
+                  </ScrollLink>
                </li>
             </ul>
          </nav>
