@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Link from "next/link";
 import { CustomHeader } from "../../src/components/common";
 
 import style from "./login.module.scss";
@@ -20,7 +21,9 @@ const Login:FC = () => {
                   </div>
                </div>
                <div className={style.button_box}>
-                  <input type="button" value="Załóż konto"/>
+                  <Link href="/register">
+                     <input type="button" value="Załóż konto"/>
+                  </Link>
                   <input type="submit" value="Zaloguj się"/>
                </div>
             </form>
