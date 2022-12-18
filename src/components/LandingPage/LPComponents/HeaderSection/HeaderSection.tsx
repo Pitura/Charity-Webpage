@@ -8,8 +8,8 @@ const HeaderSection:FC = () => {
          <div className={style.header_content}>
             <CustomHeader mainText="Zacznij pomagać!" secondaryText="Oddaj niechciane rzeczy w zaufane ręce"/>
             <div className={style.button_box}>
-               <CustomButton text="Oddaj rzeczy"/>
-               <CustomButton text="Zorganizuj zbiórkę"/>
+               <CustomButton text="Oddaj rzeczy" redirect={true}/>
+               <CustomButton text="Zorganizuj zbiórkę" redirect={true}/>
             </div>
          </div>
       </section>

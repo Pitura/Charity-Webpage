@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
+import NavigationButton from "./NavigationButton";
 import Image from "next/image";
 import Link from "next/link";
-import { Link as ScrollLink } from 'react-scroll';
 
 import { Facebook, Instagram } from "../../assets";
 import style from './NavigationAndFooter.module.scss';
@@ -11,117 +11,109 @@ interface Props {
 }
 
 const NavigationAndFooter:FC<Props> = ({children}) => {
-   const [activeButton, setActiveButton] = useState<number>(1);
-   console.log(children);
+   const [activeButton, setActiveButton] = useState<number>(0);
+   const [burgerOpen, setBurgerOpen] = useState<boolean>(false);
+
    return (
       <>
-         <nav className={style.navigation_box}>
+         <button 
+            onClick={() => setBurgerOpen(!burgerOpen)}
+            className={`
+               ${burgerOpen ? style.burger_closed : style.burger_open} 
+               ${style.nav_hamburger_button}
+            `}
+         >
+            <div />
+            <div />
+            <div />
+         </button>
+         <nav className={`
+            ${burgerOpen ? style.mobile_nav_open : ''} 
+            ${style.navigation_box} 
+            `}
+         >
             <div>
                <Link
                   href="login"
+                  scroll
                >
-                  <button className={style.acc_management_btn}>
+                  <button 
+                     onClick={() => setActiveButton(0)}
+                     className={style.acc_management_btn}
+                  >
                      Zaloguj
                   </button>
                </Link>
                <Link
                   href="register"
                >
-                  <button className={style.acc_management_btn}>
+                  <button 
+                     onClick={() => setActiveButton(0)}
+                     className={style.acc_management_btn}
+                  >
                      Załóż konto
                   </button>
                </Link>
             </div>
             <ul>
-               <li>
-                  <ScrollLink
-                     to="home"
-                     smooth={true}
-                     offset={0}
-                     duration={500}
-                     delay={500}
-                     isDynamic={true}
-                  >
-                     <button 
-                        onClick={() => setActiveButton(1)} 
-                        className={`${style.navigation_btn} ${activeButton === 1 ? style.active_button : ''}`}
-                     >
-                        Start
-                     </button>
-                  </ScrollLink>
-               </li>
-               <li>
-                  <ScrollLink
-                        to="info"
-                        smooth={true}
-                        offset={-50}
-                        duration={500}
-                        isDynamic={true}
-                     >
-                     <button 
-                        onClick={() => setActiveButton(2)} 
-                        className={`${style.navigation_btn} ${activeButton === 2 ? style.active_button : ''}`}
-                     >
-                        O co Chodzi
-                     </button>
-                  </ScrollLink>
-               </li>
-               <li>
-                  <ScrollLink
-                     to="about"
-                     smooth={true}
-                     offset={-50}
-                     duration={500}
-                     isDynamic={true}
-                  >
-                     <button 
-                        onClick={() => setActiveButton(3)} 
-                        className={`${style.navigation_btn} ${activeButton === 3 ? style.active_button : ''}`}
-                     >
-                        O nas
-                     </button>
-                  </ScrollLink>
-               </li>
-               <li>
-                  <ScrollLink
-                     to="who"
-                     smooth={true}
-                     offset={0}
-                     duration={500}
-                     isDynamic={true}
-                  >
-                     <button 
-                        onClick={() => setActiveButton(4)} 
-                        className={`${style.navigation_btn} ${activeButton === 4 ? style.active_button : ''}`}
-                     >
-                        Fundacja i organizacje
-                     </button>
-                  </ScrollLink>
-               </li>
-               <li>
-                  <ScrollLink
-                     to="contact"
-                     smooth={true}
-                     offset={0}
-                     duration={500}
-                     isDynamic={true}
-                  >
-                     <button 
-                        onClick={() => setActiveButton(5)} 
-                        className={`${style.navigation_btn} ${activeButton === 5 ? style.active_button : ''}`}
-                     >
-                        Kontakt
-                     </button>
-                  </ScrollLink>
-               </li>
+               <NavigationButton 
+                  link= "/#home"
+                  id= "home"
+                  execute={() => setActiveButton(1)}
+                  state= {activeButton}
+                  index= {1}
+                  text= 'Start'
+               />
+               <NavigationButton 
+                  link= "/#info"
+                  id= "info"
+                  execute={() => setActiveButton(2)}
+                  state= {activeButton}
+                  index= {2}
+                  text= 'O co Chodzi'
+               />
+               <NavigationButton 
+                  link= "/#about"
+                  id= "about"
+                  execute={() => setActiveButton(3)}
+                  state= {activeButton}
+                  index= {3}
+                  text= 'O nas'
+               />
+               <NavigationButton 
+                  link= "/#who"
+                  id= "who"
+                  execute={() => setActiveButton(4)}
+                  state= {activeButton}
+                  index= {4}
+                  text= 'Fundacja i organizacje'
+               />
+               <NavigationButton 
+                  link= "/#contact"
+                  id= "contact"
+                  execute={() => setActiveButton(5)}
+                  state= {activeButton}
+                  index= {5}
+                  text= 'Kontakt'
+               />
             </ul>
          </nav>
+
          {children}
+
          <footer className={style.footer_box}>
             <p>Copyright by Coders Lab</p>
             <div>
-               <Image src={Facebook} alt="facebook"/>
-               <Image src={Instagram} alt="instagram"/>
+               <Link
+                  href='https://www.facebook.com'
+               >
+                  <Image src={Facebook} alt="facebook" />
+               </Link>
+               <Link
+                  href='https://www.instagram.com/'
+               >
+                  <Image src={Instagram} alt="instagram"/>
+               </Link>
             </div>
          </footer>
       </>

@@ -8,6 +8,7 @@ html{
    position: relative;
 }
 body{
+   overflow-x: hidden;
    font-family: $font-base;
    color: $color-gray-dark;
    button:focus{

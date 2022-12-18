@@ -5,9 +5,9 @@
    min-height: 100vh;
    display: flex;
    flex-direction: column;
-   justify-content: center;
+   justify-content: flex-start;
    align-items: center;
-   padding-top: 70px;
+   padding: 10rem 0;
 }
 .who_buttons_box{
    display: flex;
@@ -55,14 +55,20 @@
    text-align: center;
    padding: 0 20px;
 }
-
 .who_single_post_box{
-   width: 80%;
+   width: 60%;
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
    align-items: center;
    margin-top: 50px;
+   min-height: 12rem;
+}
+@media screen and (max-width: 900px) {
+   .who_single_post_box{
+      min-height: 20rem;
+      width: 80%;
+   }
 }
 .single_post{
    width: 100%;
@@ -96,7 +102,7 @@
    justify-content: center;
    align-items: center;
    gap: 10px;
-   margin-top: 60px;
+   margin-top: 1rem;
    .who_pagination_button{
       font-family: 'Open Sans';
       background-color: transparent;

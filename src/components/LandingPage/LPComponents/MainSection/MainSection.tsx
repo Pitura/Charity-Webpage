@@ -57,7 +57,7 @@ const MainSection:FC = () => {
                <p>kurier przyjedzie w dogodnym terminie</p>
             </div>
          </div>
-         <CustomButton text="Oddaj rzeczy"/>
+         <CustomButton text="Oddaj rzeczy" redirect={true}/>
       </section>
    );
 }

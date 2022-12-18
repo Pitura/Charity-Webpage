@@ -6,10 +6,12 @@
    position: absolute;
    top: 2rem;
    right: 2rem;
-   z-index: 10;
+   z-index: 1;
    display: flex;
    flex-direction: column;
    gap: 2rem;
+   opacity: 1;
+   transition: 500ms;
    div{
       display: flex;
       gap: 20px;
@@ -22,6 +24,7 @@
       justify-content: flex-end;
       align-items: center;
       flex-wrap: wrap;
+      scroll-behavior: smooth;
    }
 }
 .acc_management_btn{
@@ -37,6 +40,102 @@
       background-color: rgba($color-yellow, 0.5);
    }
 }
+.nav_hamburger_button{
+   display: none;
+   background-color: transparent;
+}
+@media screen and (max-width: 800px) {
+   .navigation_box{
+      position: fixed;
+      background-color: $color-yellow;
+      padding: 20px 20px 60px;
+      width: 100%;
+      right: 0;
+      top: -100%;
+      transform-origin: top;
+      ul{
+         flex-direction: column;
+         align-items: flex-start;
+         padding-left: 2rem;
+      }
+   }
+   .mobile_nav_open{
+      top: 0;
+   }
+
+   .nav_hamburger_button{
+      position: fixed;
+      display: block;
+      left: 16px;
+      top: 16px;
+      width: 40px;
+      height: 40px;
+      z-index: 2;
+      cursor: pointer;
+      border: 5px solid $color-yellow;
+      background-color: $color-yellow;
+   }
+   .burger_open{
+      div{
+         width: 100%;
+         height: 3px;
+         background-color: $color-gray-dark;
+         color: transparent;
+         transition: 250ms;
+         &:nth-child(1){
+            transform-origin: center;
+            position: absolute;
+            top: 10%;
+            right: 0%;
+            transform: rotate(0);
+         }
+         &:nth-child(2){
+            opacity: 1;
+            position: absolute;
+            top: 50%;
+            right: 0%;
+         }
+         &:nth-child(3) {
+            transform-origin: center;
+            position: absolute;
+            top: 90%;
+            right: 0%;
+            transform: rotate(0);
+         }
+      }
+   }
+   .burger_closed{
+      div{
+         width: 100%;
+         height: 3px;
+         background-color: $color-gray-dark;
+         color: transparent;
+         transition: 500ms;
+         &:nth-child(1){
+            transform-origin: center;
+            position: absolute;
+            top: 50%;
+            right: 0%;
+            transform: rotate(45deg);
+         }
+         &:nth-child(2){
+            opacity: 0;
+         }
+         &:nth-child(3) {
+            transform-origin: center;
+            position: absolute;
+            top: 50%;
+            right: 0%;
+            transform: rotate(-45deg);
+         }
+      }
+   }
+}
+
+
+// NavigationButton
+
+
 .navigation_btn{
    cursor: pointer;
    background-color: transparent;
@@ -56,6 +155,7 @@
 
 
 // Footer
+
 
 .footer_box{
    position: relative;
