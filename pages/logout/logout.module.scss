@@ -1,0 +1,24 @@
+@import 'styles/variables/main.scss';
+
+.logout_container{
+   min-height: 100vh;
+   width: 20rem;
+   margin: 0 auto;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 35px;
+}
+.button_box{
+   border: 1px solid $color-gray-dark;
+   padding: 13px 18px;
+   background-color: transparent;
+   cursor: pointer;
+   font-size: 1rem;
+   line-height: 1.3rem;
+   font-family: 'Open Sans';
+   &:hover{
+      background-color: rgba($color-yellow, 0.5);
+   }
+}

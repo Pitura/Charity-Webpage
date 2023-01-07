@@ -66,10 +66,11 @@
    .nav_hamburger_button{
       position: fixed;
       display: block;
+      padding: 0;
       left: 16px;
       top: 16px;
       width: 40px;
-      height: 40px;
+      height: 35px;
       z-index: 2;
       cursor: pointer;
       border: 5px solid $color-yellow;
@@ -85,20 +86,20 @@
          &:nth-child(1){
             transform-origin: center;
             position: absolute;
-            top: 10%;
+            top: 0px;
             right: 0%;
             transform: rotate(0);
          }
          &:nth-child(2){
             opacity: 1;
             position: absolute;
-            top: 50%;
+            top: 11px;
             right: 0%;
          }
          &:nth-child(3) {
             transform-origin: center;
             position: absolute;
-            top: 90%;
+            top: 22px;
             right: 0%;
             transform: rotate(0);
          }
