@@ -3,9 +3,9 @@ import Link from "next/link";
 import { CustomHeader, FormInput } from "../../src/components/common";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../src/db/firebase-config";
+import { useRouter } from "next/router";
 
 import style from "./login.module.scss";
-import { useRouter } from "next/router";
 
 const Login:FC = () => {
 
@@ -23,11 +23,12 @@ const Login:FC = () => {
             const user = userCredential.user;
             sessionStorage.setItem('user', loginData.email);
             sessionStorage.setItem('id', user.uid);
-            router.push('/');
+            router.reload();
          })
          .catch((err) => {
             console.error(err);
          })
+      router.push('/');
    }
 
    return (

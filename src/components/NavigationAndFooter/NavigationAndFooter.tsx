@@ -21,7 +21,7 @@ const NavigationAndFooter:FC<Props> = ({children}) => {
    useEffect(() => {
       setUserLogged(sessionStorage.getItem('user') || '')
    }, [])
-
+   
    return (
       <>
          <button 
@@ -49,7 +49,7 @@ const NavigationAndFooter:FC<Props> = ({children}) => {
                </div>
                {
                   userLogged
-                  ? <Link href="/">
+                  ? <Link href="/logout">
                      <button 
                         onClick={() => `${sessionStorage.clear()} ${setUserLogged('')} ${signOut(auth)}`}
                         className={style.acc_management_btn}
@@ -59,7 +59,7 @@ const NavigationAndFooter:FC<Props> = ({children}) => {
                   </Link>
                   : <>
                         <Link
-                           href="login"
+                           href="/login"
                            scroll
                         >
                            <button 
@@ -70,7 +70,7 @@ const NavigationAndFooter:FC<Props> = ({children}) => {
                            </button>
                         </Link>
                         <Link
-                           href="register"
+                           href="/register"
                         >
                            <button 
                               onClick={() => setActiveButton(0)}
