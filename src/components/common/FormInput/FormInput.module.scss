@@ -1,0 +1,61 @@
+@import 'styles/variables/main.scss';
+
+.input__style{
+   position: relative;
+   width: 100%;
+   min-width: 270px;
+   &_input{
+      border: none;
+      outline: none;
+      border-bottom: 2px solid $color-gray-dark;
+      width: 100%;
+      font-size: 0.9rem;
+      line-height: 1.4rem;
+      padding: 15px 10px;
+      background-color: transparent;
+      &:focus{
+         border-color: $color-yellow !important;
+      }
+   }
+   &_label{
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 15px 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      line-height: 1.4rem;
+      z-index: -1;
+      transition: all 300ms;
+   }
+   &_labelActive{
+      top: -17px;
+      left: 5px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 1px 3px;
+      background-color: white;
+      z-index: 1;
+   }
+   .input__style_error{
+      color: $color-red;
+      display: none;
+      font-size: 0.6rem;
+      position: absolute;
+      top: 105%;
+      left: 0;
+   }
+   &_textbox{
+      min-height: 200px;
+      resize: vertical;
+   }
+   &_textboxError{
+      display: block !important;
+   }
+   input:invalid {
+      border-color: $color-red;
+   }
+   input:invalid ~ span{
+      display: block;
+   }
+}
