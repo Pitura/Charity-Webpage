@@ -1,18 +1,26 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import NavigationButton from "./NavigationButton";
 import Image from "next/image";
 import Link from "next/link";
+import { auth } from "../../db/firebase-config";
+import { signOut } from "firebase/auth";
 
-import { Facebook, Instagram } from "../../assets";
 import style from './NavigationAndFooter.module.scss';
+import { Facebook, Instagram } from "../../assets";
 
 interface Props {
    children: any;
 }
 
 const NavigationAndFooter:FC<Props> = ({children}) => {
+
    const [activeButton, setActiveButton] = useState<number>(0);
    const [burgerOpen, setBurgerOpen] = useState<boolean>(false);
+   const [userLogged, setUserLogged] = useState<string>('')
+   
+   useEffect(() => {
+      setUserLogged(sessionStorage.getItem('user') || '')
+   }, [])
 
    return (
       <>
@@ -33,27 +41,46 @@ const NavigationAndFooter:FC<Props> = ({children}) => {
             `}
          >
             <div>
-               <Link
-                  href="login"
-                  scroll
-               >
-                  <button 
-                     onClick={() => setActiveButton(0)}
-                     className={style.acc_management_btn}
-                  >
-                     Zaloguj
-                  </button>
-               </Link>
-               <Link
-                  href="register"
-               >
-                  <button 
-                     onClick={() => setActiveButton(0)}
-                     className={style.acc_management_btn}
-                  >
-                     Załóż konto
-                  </button>
-               </Link>
+               <div>
+                  {
+                     userLogged &&
+                     userLogged
+                  }
+               </div>
+               {
+                  userLogged
+                  ? <Link href="/">
+                     <button 
+                        onClick={() => `${sessionStorage.clear()} ${setUserLogged('')} ${signOut(auth)}`}
+                        className={style.acc_management_btn}
+                     >
+                        Wyloguj
+                     </button>
+                  </Link>
+                  : <>
+                        <Link
+                           href="login"
+                           scroll
+                        >
+                           <button 
+                              onClick={() => setActiveButton(0)}
+                              className={style.acc_management_btn}
+                           >
+                              Zaloguj
+                           </button>
+                        </Link>
+                        <Link
+                           href="register"
+                        >
+                           <button 
+                              onClick={() => setActiveButton(0)}
+                              className={style.acc_management_btn}
+                           >
+                              Załóż konto
+                           </button>
+                        </Link>
+                     </>
+               }
             </div>
             <ul>
                <NavigationButton 

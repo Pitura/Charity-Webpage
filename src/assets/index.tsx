@@ -17,3 +17,5 @@ export {default as ArrowDown} from './Icon-Arrow-Down.svg';
 export {default as ArrowUp} from './Icon-Arrow-Up.svg';
 export {default as Instagram} from './Instagram.svg';
 export {default as Signature} from './Signature.svg';
+export {default as Eye} from './eye-regular.svg';
+export {default as EyeSlash} from './eye-slash-regular.svg';

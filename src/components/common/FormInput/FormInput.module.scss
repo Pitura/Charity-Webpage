@@ -4,7 +4,9 @@
    position: relative;
    width: 100%;
    min-width: 270px;
+   background-color: transparent;
    &_input{
+      position: relative;
       border: none;
       outline: none;
       border-bottom: 2px solid $color-gray-dark;
@@ -16,6 +18,7 @@
       &:focus{
          border-color: $color-yellow !important;
       }
+      z-index: 1;
    }
    &_label{
       position: absolute;
@@ -25,7 +28,6 @@
       font-weight: 600;
       font-size: 0.9rem;
       line-height: 1.4rem;
-      z-index: -1;
       transition: all 300ms;
    }
    &_labelActive{
@@ -34,16 +36,12 @@
       font-size: 0.7rem;
       font-weight: 600;
       padding: 0 3px;
-      background-color: white;
-      z-index: 1;
    }
    .input__style_error{
       color: $color-red;
       display: none;
       font-size: 0.6rem;
-      position: absolute;
-      top: 105%;
-      left: 0;
+      margin-top: 5px;
    }
    &_textbox{
       min-height: 200px;
@@ -60,6 +58,16 @@
    }
    input:invalid ~ span{
       display: block;
+   }
+   &_icon{
+      position: absolute;
+      top: 20px;
+      left: 100%;
+      transform: translateX(-100%);
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+      z-index: 1;
    }
 }
 
