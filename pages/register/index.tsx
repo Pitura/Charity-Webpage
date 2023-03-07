@@ -4,6 +4,9 @@ import { CustomHeader } from "../../src/components/common";
 
 import style from "./register.module.scss";
 
+   //pass pattern
+   //pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
+   
 const Register:FC = () => {
    return (
       <section className={style.register_container}>

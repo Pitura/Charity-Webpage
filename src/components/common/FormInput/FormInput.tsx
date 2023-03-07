@@ -15,13 +15,22 @@ interface Props {
 
 const FormInput:FC<Props> = ({label, errorMessage, onChange, value, type, name, pattern, textbox}) => {
 
+   const textAreaError = value.length < 20 || value.length > 120;
+
    return (
-         <div className={s.input__style}>
+         <div className={s.input__style} style={{marginTop: textbox ? '20px' : ''}}>
             {
                textbox
                ?
                <textarea
-                  className={`${s.input__style_input} ${s.input__style_textbox}`}
+                  className={`${s.input__style_input} ${s.input__style_textbox}
+                     ${
+                        textbox && value.length > 0 &&
+                        (textAreaError
+                        ? s.colorRed 
+                        : ''
+                     )}
+                  `}
                   name={name}
                   onChange={onChange}
                   value={value}
@@ -40,7 +49,7 @@ const FormInput:FC<Props> = ({label, errorMessage, onChange, value, type, name, 
             <span className={`${s.input__style_error} 
                      ${
                         textbox && value.length > 0 &&
-                        ((value.length < 20 || value.length > 120) 
+                        (textAreaError
                         ? s.input__style_textboxError 
                         : ''
                      )}`

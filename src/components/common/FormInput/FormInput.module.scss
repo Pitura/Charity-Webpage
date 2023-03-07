@@ -29,11 +29,11 @@
       transition: all 300ms;
    }
    &_labelActive{
-      top: -17px;
+      top: -14px;
       left: 5px;
       font-size: 0.7rem;
       font-weight: 600;
-      padding: 1px 3px;
+      padding: 0 3px;
       background-color: white;
       z-index: 1;
    }
@@ -52,10 +52,33 @@
    &_textboxError{
       display: block !important;
    }
+   .colorRed{
+      border-color: $color-red;
+   }
    input:invalid {
       border-color: $color-red;
    }
    input:invalid ~ span{
       display: block;
+   }
+}
+
+
+@media screen and (max-width: 900px) {
+   .input__style{
+      &_input{
+         font-size: 1.1rem;
+         line-height: 1.6rem;
+      }
+      &_label{
+         font-size: 1.1rem;
+         line-height: 1.6rem;
+      }
+      &_labelActive{
+         font-size: 0.9rem;
+      }
+      .input__style_error{
+         font-size: 0.8rem;
+      }
    }
 }

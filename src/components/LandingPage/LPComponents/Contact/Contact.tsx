@@ -1,5 +1,7 @@
 import { FC, FormEvent, useState } from "react";
 import { CustomHeader, FormInput } from "../../../common";
+import { db } from "../../../../db/firebase-config";
+import { collection, serverTimestamp, doc, setDoc } from "firebase/firestore";
 
 import style from "./Contact.module.scss";
 
@@ -11,16 +13,27 @@ const Contact:FC = () => {
       message: '',
    });
 
-   console.log(msgData);
-   console.log(msgData.name.length > 0 && msgData.email.length > 0 && msgData.message.length > 0);
+   const collectionRef = collection(db, 'messages');
+
+   const addMessage = async () => {
+      const msg = {
+         ...msgData,
+         created: serverTimestamp(),
+      }
+      try {
+         const msgRef = doc(collectionRef);
+         await setDoc(msgRef, msg);
+      } catch (err) {
+         console.error(err);
+      }
+   }
 
    const handleSubmit = (e:FormEvent) => {
       e.preventDefault();
-      console.log('Test form sub');
+      addMessage();
+      setMsgData({...msgData, name:'', email:'', message:'',});
+      console.log('Message sent!');
    }
-
-   //pass pattern
-   //pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
 
    return (
       <section id="contact" className={style.contact__container}>
@@ -60,7 +73,7 @@ const Contact:FC = () => {
                      pattern="^[A-Za-z0-9]{10,120}$"
                      textbox={true}
                   />
-               <input disabled={!(msgData.name.length > 0 && msgData.email.length > 0 && msgData.message.length > 0)} type="submit" name="button" value="Wyślij" className={style.submit_button}/>
+               <input disabled={!(msgData.name.length > 3 && msgData.email.length > 0 && msgData.message.length > 20)} type="submit" name="button" value="Wyślij" className={style.submit_button}/>
             </form>
          </div>
       </section>
