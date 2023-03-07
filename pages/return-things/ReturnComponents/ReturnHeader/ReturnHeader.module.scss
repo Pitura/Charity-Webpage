@@ -1,0 +1,26 @@
+@import 'styles/variables/main.scss';
+
+.returnHeader__container{
+   min-height: 100vh;
+   background-image: url('../../../../src/assets/Form-Hero-Image.jpg');
+   background-repeat: no-repeat;
+   background-size: contain;
+   background-position: right 40rem top 0px ;
+}
+
+
+
+
+@media screen and (max-width: 1840px){
+   .returnHeader__container{
+      background-size: cover;
+      background-position: right 30rem top;
+   }
+}
+
+@media screen and (max-width: 900px) {
+   .returnHeader__container{
+      justify-content: center;
+      background-position: right -10rem top;
+   }
+}

@@ -44,7 +44,7 @@ const NavigationAndFooter:FC<Props> = ({children}) => {
                <div>
                   {
                      userLogged &&
-                     userLogged
+                     `Cześć ${userLogged}!`
                   }
                </div>
                {
@@ -97,7 +97,7 @@ const NavigationAndFooter:FC<Props> = ({children}) => {
                   execute={() => setActiveButton(2)}
                   state= {activeButton}
                   index= {2}
-                  text= 'O co Chodzi'
+                  text= 'O co chodzi'
                />
                <NavigationButton 
                   link= "/#about"

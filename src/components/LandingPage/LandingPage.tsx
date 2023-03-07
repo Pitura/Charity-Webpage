@@ -1,7 +1,8 @@
 import { FC } from "react";
+import { AboutUs, HeaderSection, MainSection, WhoDoWeHelp } from "./LPComponents";
+import { Contact } from "../common";
 
 import style from './LandingPage.module.scss';
-import { AboutUs, HeaderSection, MainSection, WhoDoWeHelp, Contact } from "./LPComponents";
 
 const LandingPage:FC = () => {
    return (
