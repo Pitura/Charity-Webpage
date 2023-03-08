@@ -86,7 +86,7 @@ const NavigationAndFooter:FC<Props> = ({children}) => {
                <NavigationButton 
                   link= "/#home"
                   id= "home"
-                  execute={() => setActiveButton(1)}
+                  execute={() => `${setActiveButton(1)} ${setBurgerOpen(false)}`}
                   state= {activeButton}
                   index= {1}
                   text= 'Start'
@@ -94,7 +94,7 @@ const NavigationAndFooter:FC<Props> = ({children}) => {
                <NavigationButton 
                   link= "/#info"
                   id= "info"
-                  execute={() => setActiveButton(2)}
+                  execute={() => `${setActiveButton(2)} ${setBurgerOpen(false)}`}
                   state= {activeButton}
                   index= {2}
                   text= 'O co chodzi'
@@ -102,7 +102,7 @@ const NavigationAndFooter:FC<Props> = ({children}) => {
                <NavigationButton 
                   link= "/#about"
                   id= "about"
-                  execute={() => setActiveButton(3)}
+                  execute={() => `${setActiveButton(3)} ${setBurgerOpen(false)}`}
                   state= {activeButton}
                   index= {3}
                   text= 'O nas'
@@ -110,7 +110,7 @@ const NavigationAndFooter:FC<Props> = ({children}) => {
                <NavigationButton 
                   link= "/#who"
                   id= "who"
-                  execute={() => setActiveButton(4)}
+                  execute={() => `${setActiveButton(4)} ${setBurgerOpen(false)}`}
                   state= {activeButton}
                   index= {4}
                   text= 'Fundacja i organizacje'
@@ -118,7 +118,7 @@ const NavigationAndFooter:FC<Props> = ({children}) => {
                <NavigationButton 
                   link= "/#contact"
                   id= "contact"
-                  execute={() => setActiveButton(5)}
+                  execute={() => `${setActiveButton(5)} ${setBurgerOpen(false)}`}
                   state= {activeButton}
                   index= {5}
                   text= 'Kontakt'

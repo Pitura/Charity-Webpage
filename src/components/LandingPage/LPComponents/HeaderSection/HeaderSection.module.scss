@@ -44,10 +44,9 @@
 @media screen and (max-width: 900px) {
    .header_section_container{
       justify-content: center;
-      background-position: right -10rem top;
+      background: transparent;
    }
    .header_content{
       padding: 20px;
-      background-color: rgba($color-white, 0.95);
    }
 }
