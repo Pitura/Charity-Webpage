@@ -7,20 +7,21 @@
    background-image: url('../../../../src/assets/Background-Form.jpg');
    background-repeat: no-repeat;
    background-size: cover;
-   background-position: right;
+   background-position: right top;
 }
 .returnForm__contentBox{
-   min-height: 80vh;
    margin: 0 auto;
    max-width: 1400px;
-   height: inherit;
-   padding: 2.5rem;
-   display: flex;
-   flex-flow: column;
-   align-items: flex-start;
-   justify-content: space-between;
-   gap: 3rem;
+   height: 100%;
+   padding: 4.5rem 2.5rem;
    &_main{
+      display: grid;
+      gap: 3rem;
+      min-height: calc(80vh - 9rem);
+      width: fit-content;
+      flex-flow: column;
+      align-items: flex-start;
+      justify-content: flex-start;
 
    }
 }
@@ -28,6 +29,7 @@
 .returnForm__btnBox{
    display: flex;
    gap: 2rem;
+   align-self: flex-end;
 }
 .returnForm__btn{
    cursor: pointer;
@@ -38,14 +40,15 @@
    border: 1px solid;
    border-color: $color-gray-dark;
    padding: 0.5rem 1.5rem;
+
    &:hover{
       background-color: rgb($color-yellow, 0.5);
    }
 }
 
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 1400px) {
    .returnForm__container{
-      background-position: right -20rem center;
+      background-position: right -20rem top;
    }
 }
 @media screen and (max-width: 900px) {
@@ -103,5 +106,64 @@
             }
          }
       }
+   }
+}
+
+
+//       Step 2      //
+
+.stepTwo__box{
+
+   h2{
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+   }
+   .stepTwo__boxItems{
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: fit-content;
+      flex-wrap: wrap;
+      gap: 2rem;
+      .main_btn{
+         background-color: transparent;
+         border: 0.05rem solid $color-gray-dark;
+         min-width: 5rem;
+         cursor: pointer;
+         display: flex;
+         gap: 1rem;
+         align-items: center;
+         font-size: 1rem;
+         padding: 0.5rem 1rem;
+         img{
+            width: 1.1rem;
+            height: 0.9rem;
+            transition: 250ms;
+         }
+         .rotateArrow{
+            transform: rotate(180deg);
+         }
+      }
+   }
+   .stepTwo__absoluteBox{
+      position: absolute;
+      top: 120%;
+      right: 0;
+      max-height: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: 250ms;
+      button{
+         cursor: pointer;
+         width: 2rem;
+         height: 2rem;
+         font-size: 0.8rem;
+      }
+   }
+   .stepTwo__absoluteBox_active{
+      max-height: 999px;
    }
 }

@@ -35,15 +35,13 @@ const ReturnForm:FC<Props> = ({step, stepForward, stepBack }) => {
       courierInfo: '',
    })
 
-   console.log(usableClothes,nonUsableClothes,toys,books,other)
-
    return (
       <section className={s.returnForm__container}>
-         <div className={s.returnForm__contentBox} style={{justifyContent: step === 6 ? 'center' : 'space-between'}}>
+         <div className={s.returnForm__contentBox}>
             {
                step === 6
                ? <ThankYou />
-               : <>
+               : <main className={s.returnForm__contentBox_main}>
                   {
                      step < 5 &&
                      <p>
@@ -52,39 +50,40 @@ const ReturnForm:FC<Props> = ({step, stepForward, stepBack }) => {
                         }
                      </p>
                   }
-                  <main className={s.returnForm__contentBox_main}>
-                     {
-                        step === 1 &&
-                        <Step1 
-                           pick1={() => setUsableClothes(!usableClothes)}
-                           pick2={() => setNonUsableClothes(!nonUsableClothes)}
-                           pick3={() => setToys(!toys)}
-                           pick4={() => setBooks(!books)}
-                           pick5={() => setOther(!other)}
-                           state1={usableClothes}
-                           state2={nonUsableClothes}
-                           state3={toys}
-                           state4={books}
-                           state5={other}
-                        />
-                     }
-                     {
-                        step === 2 &&
-                        <Step2 />
-                     }
-                     {
-                        step === 3 &&
-                        <Step3 />
-                     }
-                     {
-                        step === 4 &&
-                        <Step4 />
-                     }
-                     {
-                        step === 5 &&
-                        <Summation />
-                     }
-                  </main>
+                  {
+                     step === 1 &&
+                     <Step1 
+                        pick1={() => setUsableClothes(!usableClothes)}
+                        pick2={() => setNonUsableClothes(!nonUsableClothes)}
+                        pick3={() => setToys(!toys)}
+                        pick4={() => setBooks(!books)}
+                        pick5={() => setOther(!other)}
+                        state1={usableClothes}
+                        state2={nonUsableClothes}
+                        state3={toys}
+                        state4={books}
+                        state5={other}
+                     />
+                  }
+                  {
+                     step === 2 &&
+                     <Step2 
+                        bags={bagsNo}
+                        setBags={setBagsNo}
+                     />
+                  }
+                  {
+                     step === 3 &&
+                     <Step3 />
+                  }
+                  {
+                     step === 4 &&
+                     <Step4 />
+                  }
+                  {
+                     step === 5 &&
+                     <Summation />
+                  }
                   <div className={s.returnForm__btnBox}>
                      {
                         step > 1 &&
@@ -100,7 +99,7 @@ const ReturnForm:FC<Props> = ({step, stepForward, stepBack }) => {
                         }
                      </button>
                   </div>
-               </>
+               </main>
             }
          </div>
       </section>
