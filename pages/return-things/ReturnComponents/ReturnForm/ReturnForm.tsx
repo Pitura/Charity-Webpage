@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, FormEvent, useState } from "react";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
 import Step3 from "./Step3";
@@ -74,7 +74,14 @@ const ReturnForm:FC<Props> = ({step, stepForward, stepBack }) => {
                   }
                   {
                      step === 3 &&
-                     <Step3 />
+                     <Step3 
+                        localization={helpLocalization}
+                        setLocalization={setHelpLocalization}
+                        whoToHelp={whoDoIHelp}
+                        setWhoToHelp={setWhoDoIHelp}
+                        setOrganization={(e:FormEvent) => setOrganization((e.target as HTMLInputElement).value)}
+                        organization={organization}
+                     />
                   }
                   {
                      step === 4 &&

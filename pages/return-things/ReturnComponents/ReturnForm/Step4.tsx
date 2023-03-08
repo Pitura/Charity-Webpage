@@ -4,8 +4,8 @@ import s from "./ReturnForm.module.scss";
 
 const Step4:FC = () => {
    return (
-      <div>
-         Step4
+      <div className={s.stepFour__box}>
+         
       </div>
    );
 }
