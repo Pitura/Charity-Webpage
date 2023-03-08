@@ -1,10 +1,8 @@
 import { FC, useState } from "react";
 import { Contact } from "../../src/components/common";
-import { ReturnForm, ReturnHeader } from "./ReturnComponents";
-import YellowWarning from "./ReturnComponents/YellowWarning/YellowWarning";
+import { ReturnForm, ReturnHeader, YellowWarning } from "../../src/components/ReturnComponents";
 
 import s from "./ReturnThings.module.scss";
-
 
 const ReturnThings:FC = () => {
    
@@ -26,5 +24,5 @@ const ReturnThings:FC = () => {
       </section>
    );
 }
- 
+
 export default ReturnThings;
