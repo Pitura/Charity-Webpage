@@ -1,0 +1,20 @@
+@import 'styles/variables/main.scss';
+
+.yellowWarning__container{
+   background-color: $color-yellow;
+   &_box{
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2.5rem;
+      display: flex;
+      flex-flow: column;
+      gap: 0.5rem;
+      h3{
+         font-weight: 700;
+         font-size: 1.2rem;
+      }
+      p{
+         font-size: 1rem;
+      }
+   }
+}

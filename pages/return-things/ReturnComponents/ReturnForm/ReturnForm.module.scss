@@ -1,1 +1,26 @@
 @import 'styles/variables/main.scss';
+
+.returnForm__container{
+   min-height: 80vh;
+   width: 100%;
+   background-image: url('../../../../src/assets/Background-Form.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: right;
+}
+.returnForm__contentBox{
+   margin: 0 auto;
+   max-width: 1400px;
+   padding: 2.5rem;
+}
+
+@media screen and (max-width: 1600px) {
+   .returnForm__container{
+      background-position: right -20rem center;
+   }
+}
+@media screen and (max-width: 900px) {
+   .returnForm__container{
+      background: transparent;
+   }
+}
