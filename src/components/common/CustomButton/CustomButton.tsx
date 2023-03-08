@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState, useEffect } from "react";
 import Link from "next/link";
 
 import style from "./CustomButton.module.scss";
@@ -10,6 +10,13 @@ interface Props{
 }
 
 const CustomButton:FC<Props> = ({text, execute, redirect}) => {
+
+   const [userLoggedIn, setUserLoggedIn] = useState<string>('');
+
+   useEffect(() => {
+      setUserLoggedIn(sessionStorage.getItem('user') || '')
+   },[])
+
    return (
       <div 
          className={style.custom_button_style}
@@ -17,7 +24,7 @@ const CustomButton:FC<Props> = ({text, execute, redirect}) => {
       >
          {
             redirect
-            ? <Link href="/login">{text}</Link>
+            ? <Link href={`${userLoggedIn.length > 1 ? '/return-things' : "/login"}`}>{text}</Link>
             : <span>{text}</span>
          }
       </div>
