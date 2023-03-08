@@ -163,9 +163,10 @@
       width: 2rem;
       height: 2rem;
       font-size: 0.8rem;
+      background-color: transparent;
+      backdrop-filter: blur(50px);
       &:hover{
          background-color: rgb($color-yellow, 0.5);
-         backdrop-filter: blur(10px);
       }
    }
 }
@@ -200,6 +201,11 @@
    button{
       width: 100%;
       border: 0.05rem solid $color-gray-dark;
+      background-color: transparent;
+      backdrop-filter: blur(50px);
+      &:hover{
+         background-color: rgb($color-yellow, 0.5);
+      }
    }
 }
 .stepThree__absoluteBox_active{
@@ -217,7 +223,6 @@
       border: 0.05rem solid $color-gray-dark;
       &:hover{
          background-color: rgb($color-yellow, 0.5);
-         backdrop-filter: blur(10px);
       }
    }
 }
@@ -234,10 +239,191 @@
       outline: 0.15rem solid $color-yellow;
    }
 }
+.helpBtn_active{
+   background-color: $color-yellow;
+}
+
+
+@media screen and (max-width: 900px) {
+   .stepThree__boxItems_helpBtns{
+      width: 100%;
+      button{
+         background-color: transparent;
+      }
+   }
+}
+
+
 
 
 //       Step 4      //
 
 .stepFour__box{
-   
+   h2{
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+   }
+   .stepFour__inputBox{
+      display: flex;
+      flex-direction: row;
+      gap: 4rem;
+      &_column{
+         width: calc(50% - 2rem);
+         display: flex;
+         flex-direction: column;
+         gap: 2rem;
+         h3{
+            font-size: 1.1rem;
+            font-weight: 600;
+         }
+         div{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            p{
+               width: 35%;
+            }
+            input{
+               width: 60%;
+               padding: 0.5rem 1rem;
+            }
+            textarea{
+               width: 60%;
+               min-height: 4rem;
+               padding: 0.5rem 1rem;
+               resize: vertical;
+            }
+            input,
+            textarea{
+               background-color: $color-white;
+               font-size: 0.8rem;
+               border: 0.1rem solid $color-gray-dark;
+               &:focus{
+                  outline: 0.1rem solid $color-yellow;
+               }
+            }
+         }
+      }
+   }
+}
+
+@media screen and (max-width: 900px) {
+   .stepFour__box{
+      h2{
+      }
+      .stepFour__inputBox{
+         flex-direction: column;
+         &_column{
+            width: 100%;
+         }
+      }
+   }
+}
+
+
+
+//       Summation      //
+
+.summation__box{
+   max-width: 40rem;
+   width: 40rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: flex-start;
+   gap: 2rem;
+   h2{
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+   }  
+}
+.summation__header{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 1rem;
+   h3{
+      font-size: 1.2rem;
+      font-weight: 600;
+   }
+   div{
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.5rem;
+      img{
+         width: 2rem;
+         height: 2rem;
+      }
+   }
+}
+.summation__columns{
+   display: flex;
+   gap: 4rem;
+   width: 100%;
+   &_column{
+      width: calc(50% - 2rem);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      h3{
+         font-size: 1.2rem;
+         font-weight: 600;
+         margin-bottom: 0.5rem;
+      }
+      div{
+         font-size: 1.1rem;
+         line-height: 1.6rem;
+         display: flex;
+         gap: 0.5rem;
+         p{
+            display: inline-block;
+            width: 40%;
+         }
+         span{
+            display: inline-block;
+            width: 60%;
+         }
+      }
+   }
+}
+
+
+@media screen and (max-width: 900px) {
+   .summation__box{
+      max-width: 100%;
+      width: 100%;
+      h2{
+         font-size: 1.4rem;
+         font-weight: 600;
+         margin-bottom: 2rem;
+      }
+   }
+   .summation__columns{
+      flex-direction: column;
+      &_column{
+         width: 100%;
+      }
+   }
+}
+
+
+//       ThankYou       //
+
+.thankYou__box{
+   width: 100%;
+   height: 40rem;
+   width: 30rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+@media screen and (max-width: 900px) {
+   .thankYou__box{
+      width: 100%;
+   }
 }

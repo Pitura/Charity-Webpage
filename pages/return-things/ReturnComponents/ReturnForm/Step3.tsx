@@ -36,11 +36,11 @@ const Step3:FC<Props> = ({localization, setLocalization, whoToHelp, setWhoToHelp
          <div className={s.stepThree__boxItems}>
             <h3>Komu chcesz pomóc?</h3>
             <div className={s.stepThree__boxItems_helpBtns}>
-               <button onClick={() => setWhoToHelp('dzieciom')}>dzieciom</button>
-               <button onClick={() => setWhoToHelp('samotnym matkom')}>samotnym matkom</button>
-               <button onClick={() => setWhoToHelp('bezdomnym')}>bezdomnym</button>
-               <button onClick={() => setWhoToHelp('niepełnosprawnym')}>niepełnosprawnym</button>
-               <button onClick={() => setWhoToHelp('osobom starszym')}>osobom starszym</button>
+               <button onClick={() => setWhoToHelp('dzieciom')} className={`${whoToHelp === 'dzieciom' ? s.helpBtn_active : ''}`}>dzieciom</button>
+               <button onClick={() => setWhoToHelp('samotnym matkom')} className={`${whoToHelp === 'samotnym matkom' ? s.helpBtn_active : ''}`}>samotnym matkom</button>
+               <button onClick={() => setWhoToHelp('bezdomnym')} className={`${whoToHelp === 'bezdomnym' ? s.helpBtn_active : ''}`}>bezdomnym</button>
+               <button onClick={() => setWhoToHelp('niepełnosprawnym')} className={`${whoToHelp === 'niepełnosprawnym' ? s.helpBtn_active : ''}`}>niepełnosprawnym</button>
+               <button onClick={() => setWhoToHelp('osobom starszym')} className={`${whoToHelp === 'osobom starszym' ? s.helpBtn_active : ''}`}>osobom starszym</button>
             </div>
          </div>
          <div className={s.stepThree__boxItems}>

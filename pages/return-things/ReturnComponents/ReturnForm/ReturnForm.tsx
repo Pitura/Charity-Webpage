@@ -85,11 +85,43 @@ const ReturnForm:FC<Props> = ({step, stepForward, stepBack }) => {
                   }
                   {
                      step === 4 &&
-                     <Step4 />
+                     <Step4 
+                        street={(e:FormEvent) => setPickupData({...pickupData, street : (e.target as HTMLInputElement).value})}
+                        city={(e:FormEvent) => setPickupData({...pickupData, city : (e.target as HTMLInputElement).value})}
+                        postal={(e:FormEvent) => setPickupData({...pickupData, postal : (e.target as HTMLInputElement).value})}
+                        phone={(e:FormEvent) => setPickupData({...pickupData, phone : (e.target as HTMLInputElement).value})}
+                        date={(e:FormEvent) => setPickupData({...pickupData, date : (e.target as HTMLInputElement).value})}
+                        time={(e:FormEvent) => setPickupData({...pickupData, time : (e.target as HTMLInputElement).value})}
+                        courierInfo={(e:FormEvent) => setPickupData({...pickupData, courierInfo : (e.target as HTMLInputElement).value})}
+                        streetValue={pickupData.street}
+                        cityValue={pickupData.city}
+                        postalValue={pickupData.postal}
+                        phoneValue={pickupData.phone}
+                        dateValue={pickupData.date}
+                        timeValue={pickupData.time}
+                        courierInfoValue={pickupData.courierInfo}
+                     />
                   }
                   {
                      step === 5 &&
-                     <Summation />
+                     <Summation 
+                        state1={usableClothes}
+                        state2={nonUsableClothes}
+                        state3={toys}
+                        state4={books}
+                        state5={other}
+                        bags={bagsNo}
+                        whoToHelp={whoDoIHelp}
+                        organization={organization}
+                        localization={helpLocalization}
+                        streetValue={pickupData.street}
+                        cityValue={pickupData.city}
+                        postalValue={pickupData.postal}
+                        phoneValue={pickupData.phone}
+                        dateValue={pickupData.date}
+                        timeValue={pickupData.time}
+                        courierInfoValue={pickupData.courierInfo}
+                     />
                   }
                   <div className={s.returnForm__btnBox}>
                      {
