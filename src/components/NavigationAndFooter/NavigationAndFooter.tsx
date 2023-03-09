@@ -40,18 +40,18 @@ const NavigationAndFooter:FC<Props> = ({children}) => {
             ${style.navigation_box} 
             `}
          >
-            <div>
-               <div>
-                  {
-                     userLogged &&
-                     `Cześć ${userLogged}!`
-                  }
-               </div>
+            <div className={style.acc_management_box}>
+               {
+                  userLogged &&
+                  <div className={style.acc_management_btn}>
+                     {`Cześć ${userLogged}!`}
+                  </div>
+               }
                {
                   userLogged
                   ? <Link href="/logout">
                      <button 
-                        onClick={() => `${sessionStorage.clear()} ${setUserLogged('')} ${signOut(auth)}`}
+                        onClick={() => `${sessionStorage.clear()} ${setUserLogged('')} ${signOut(auth)} ${setBurgerOpen(false)}`}
                         className={style.acc_management_btn}
                      >
                         Wyloguj
@@ -63,7 +63,7 @@ const NavigationAndFooter:FC<Props> = ({children}) => {
                            scroll
                         >
                            <button 
-                              onClick={() => setActiveButton(0)}
+                              onClick={() => `${setActiveButton(0)} ${setBurgerOpen(false)}`}
                               className={style.acc_management_btn}
                            >
                               Zaloguj
@@ -73,7 +73,7 @@ const NavigationAndFooter:FC<Props> = ({children}) => {
                            href="/register"
                         >
                            <button 
-                              onClick={() => setActiveButton(0)}
+                              onClick={() => `${setActiveButton(0)} ${setBurgerOpen(false)}`}
                               className={style.acc_management_btn}
                            >
                               Załóż konto

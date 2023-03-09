@@ -165,6 +165,7 @@
       font-size: 0.8rem;
       background-color: transparent;
       backdrop-filter: blur(50px);
+      border: 0.05rem solid $color-gray-dark;
       &:hover{
          background-color: rgb($color-yellow, 0.5);
       }
@@ -173,6 +174,19 @@
 .stepTwo__absoluteBox_active{
    max-height: 999px;
 }
+
+@media screen and (max-width: 900px) {
+   .stepTwo__boxItems{
+      gap: 1rem;
+      justify-content: flex-end;
+   }
+   .stepTwo__absoluteBox{
+      button{
+         background-color: $color-white;
+      }
+   }
+}
+
 
 
 //       Step 3      //
@@ -200,12 +214,7 @@
    @extend .stepTwo__absoluteBox;
    button{
       width: 100%;
-      border: 0.05rem solid $color-gray-dark;
-      background-color: transparent;
-      backdrop-filter: blur(50px);
-      &:hover{
-         background-color: rgb($color-yellow, 0.5);
-      }
+      background-color: $color-white;
    }
 }
 .stepThree__absoluteBox_active{
