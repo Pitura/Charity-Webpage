@@ -20,12 +20,24 @@
    gap: 30px;
    background-color: $color-white;
    padding: 40px 60px;
+   position: relative;
    div{
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
       min-width: 14rem;
+   }
+   .readyAcc{
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.25rem;
+      top: -2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
    }
 }
 .button_box{
@@ -52,5 +64,11 @@
       &:hover{
          background-color: rgba($color-yellow, 0.5);
       }
+   }
+}
+
+@media screen and (max-width: 900px) {
+   .login_container{
+      min-height: 100svh;
    }
 }

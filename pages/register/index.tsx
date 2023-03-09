@@ -71,7 +71,7 @@ const Register:FC = () => {
                   />
                   <FormInput 
                      label="Wpisz hasło"
-                     errorMessage="Hasło powinno zawierać małą literę, dużą literę, cyfrę, znak specjalny oraz mieścić się pomiędzy 8 a 20 znaków"
+                     errorMessage="Hasło powinno zawierać litery, cyfrę, znak specjalny oraz mieścić się pomiędzy 8 a 20 znaków"
                      onChange={(e:FormEvent) => setUserData({...userData, password: (e.target as HTMLInputElement).value})}
                      value={`${userData.password}`}
                      type="password"

@@ -40,6 +40,10 @@ const Login:FC = () => {
             <CustomHeader mainText="Zaloguj się"/>
             <form onSubmit={(e) => handleLogin(e)}>
                <div className={style.inputs_box}>
+                  <div className={style.readyAcc}>
+                     <span>Jeśli nie chcesz tworzyć konta:</span>
+                     <span>test@gmail.com // test123!</span>
+                  </div>
                   <FormInput 
                      label="Wpisz E-mail"
                      errorMessage="Wprowadź poprawny adres email"
