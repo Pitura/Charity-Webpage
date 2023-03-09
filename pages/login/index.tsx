@@ -6,6 +6,7 @@ import { auth } from "../../src/db/firebase-config";
 import { useRouter } from "next/router";
 
 import style from "./login.module.scss";
+import { resolve } from "path/posix";
 
 const Login:FC = () => {
 
@@ -15,7 +16,6 @@ const Login:FC = () => {
       email: '',
       password: ''
    })
-   const [badLogin, setBadLogin] = useState<boolean>(false);
 
    const handleLogin = async (e:FormEvent) => {
       e.preventDefault();
@@ -27,13 +27,11 @@ const Login:FC = () => {
             router.reload();
          })
          .catch((err) => {
+            router.push('/login');
             console.error(err);
+            alert('Błędny email lub hasło');
          })
-      
-      if(sessionStorage.getItem('user') !== loginData.email){
-         return setBadLogin(true);
-      }
-      router.push('/');
+         router.push('/');
    }
 
    return (
@@ -61,10 +59,6 @@ const Login:FC = () => {
                      pattern="^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$"
                   />
                </div>
-               {
-                  badLogin &&
-                  <div className={style.error}>E-mail lub hasło nie jest poprawne</div>
-               }
                <div className={style.button_box}>
                   <Link href="/register">
                      <input type="button" value="Załóż konto"/>
