@@ -15,6 +15,7 @@ const Login:FC = () => {
       email: '',
       password: ''
    })
+   const [badLogin, setBadLogin] = useState<boolean>(false);
 
    const handleLogin = async (e:FormEvent) => {
       e.preventDefault();
@@ -28,6 +29,10 @@ const Login:FC = () => {
          .catch((err) => {
             console.error(err);
          })
+      
+      if(sessionStorage.getItem('user') !== loginData.email){
+         return setBadLogin(true);
+      }
       router.push('/');
    }
 
@@ -56,6 +61,10 @@ const Login:FC = () => {
                      pattern="^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$"
                   />
                </div>
+               {
+                  badLogin &&
+                  <div className={style.error}>E-mail lub hasło nie jest poprawne</div>
+               }
                <div className={style.button_box}>
                   <Link href="/register">
                      <input type="button" value="Załóż konto"/>
