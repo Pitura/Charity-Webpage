@@ -6,12 +6,12 @@ import { auth } from "../../src/db/firebase-config";
 import { useRouter } from "next/router";
 
 import style from "./login.module.scss";
-import { resolve } from "path/posix";
 
 const Login:FC = () => {
 
    const router = useRouter();
 
+   const [errorMsg, setErrorMsg] = useState<boolean>(false)
    const [loginData, setLoginData] = useState<any>({
       email: '',
       password: ''
@@ -19,21 +19,17 @@ const Login:FC = () => {
 
    const handleLogin = async (e:FormEvent) => {
       e.preventDefault();
-      signInWithEmailAndPassword(auth, loginData.email, loginData.password)
-         .then((userCredential) => {
-            const user = userCredential.user;
-            sessionStorage.setItem('user', loginData.email);
-            sessionStorage.setItem('id', user.uid);
-            router.reload();
-         })
-         .catch((err) => {
-            router.push('/login');
-            console.error(err);
-            alert('Błędny email lub hasło');
-         })
-         router.push('/');
+      try{
+         await signInWithEmailAndPassword(auth, loginData.email, loginData.password)
+         sessionStorage.setItem('user', loginData.email);
+         router.reload()
+      } catch(err){
+         console.error('Error:', err);
+         setErrorMsg(true);
+         return;
+      }
    }
-
+   console.log(errorMsg);
    return (
       <section className={style.login_container}>
          <div className={style.login_box}>
@@ -63,6 +59,9 @@ const Login:FC = () => {
                      pattern="^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$"
                   />
                </div>
+               {
+                  errorMsg && <p className={style.error_msg}>E-mail lub hasło nieprawidłowe!</p>
+               }
                <div className={style.button_box}>
                   <Link href="/register">
                      <input type="button" value="Załóż konto"/>

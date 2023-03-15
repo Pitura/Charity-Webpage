@@ -72,3 +72,14 @@
       min-height: 100svh;
    }
 }
+
+
+
+.error_msg{
+   width: max-content;
+   margin: 20px auto 0;
+   color: $color-red;
+   font-size: 1rem;
+   line-height: 1.5rem;
+   font-weight: 600;
+}

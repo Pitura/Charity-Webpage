@@ -1,43 +1,27 @@
-import { FC, FormEvent, useEffect, useState } from "react";
+import { FC, FormEvent, useState } from "react";
 import Link from "next/link";
 import { CustomHeader, FormInput } from "../../src/components/common";
 import { auth, db } from "../../src/db/firebase-config";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { setDoc, doc, serverTimestamp, collection, getDocs } from "firebase/firestore";
+import { setDoc, doc, serverTimestamp, } from "firebase/firestore";
+import { useRouter } from "next/router";
 
 import style from "./register.module.scss";
    
 const Register:FC = () => {
    
+   const route = useRouter();
+
    const [userData, setUserData] = useState<any>({
       email: '',
       password: '',
       confirmPassword: '',
    })
-   const [registeredUsers, setRegisteredUsers] = useState<any[]>([]);
    const [emailInUse, setEmailInUse] = useState<boolean>(false);
-   
-   const usersCollectionRef = collection(db, "users");
-
-   const GetUsers = async () => {
-      try{
-         const users = await getDocs(usersCollectionRef);
-         const filteredData = users.docs.map( doc => {
-            setRegisteredUsers(prev => [...prev, doc.data().email])
-         })
-      } catch(err) {
-         console.error(err);
-      }
-   }
-   useEffect(() => {
-      GetUsers();
-   },[])
+   const [successMsg, setSuccessMsg] = useState<boolean>(false);
 
    const handleSubmit = async (e:FormEvent) => {
       e.preventDefault();
-      if(registeredUsers.includes(userData.email)){
-         return setEmailInUse(true);
-      }
       try{
          const newUser = await createUserWithEmailAndPassword(auth, userData.email, userData.password);
          await setDoc(doc(db, 'users', newUser.user.uid), {
@@ -45,13 +29,18 @@ const Register:FC = () => {
             password: userData.password,
             created: serverTimestamp(),
          })
+         sessionStorage.setItem('user', userData.email);
       } catch (err) {
-         console.error(err)
+         console.error(err);
+         setSuccessMsg(false);
+         setEmailInUse(true);
+         return;
       }
       setUserData({email: '', password: '', confirmPassword: ''});
       setEmailInUse(false);
-      GetUsers();
+      setSuccessMsg(true);
       console.log('Account created!');
+      route.reload();
    }
 
    return (
@@ -89,8 +78,10 @@ const Register:FC = () => {
                   />
                </div>
                {
-                  emailInUse &&
-                  <div className={style.error_msg}>E-mail jest już w użytku!</div>
+                  emailInUse && <p className={style.error_msg}>E-mail jest już w użytku!</p>
+               }
+               {
+                  successMsg && <p className={style.success_msg}>Konto zostało utworzone!</p>
                }
                <div className={style.button_box}>
                   <Link href="/login">
