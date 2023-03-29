@@ -3,6 +3,7 @@
 
 html{
    font-size: calc(14px + (24 - 14) * ((100vw - 300px) / (2400 - 300)));
+   scroll-behavior: smooth;
 }
 #__next{
    position: relative;

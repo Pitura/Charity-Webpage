@@ -39,8 +39,8 @@ const Register:FC = () => {
       setUserData({email: '', password: '', confirmPassword: ''});
       setEmailInUse(false);
       setSuccessMsg(true);
+      route.push('/#home');
       console.log('Account created!');
-      route.reload();
    }
 
    return (

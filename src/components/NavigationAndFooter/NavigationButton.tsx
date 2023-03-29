@@ -24,7 +24,6 @@ const NavigationButton:FC<Props> = ({link, execute, state, index, text, id}) => 
                   smooth={true}
                   offset={0}
                   duration={1000}
-                  isDynamic={true}
                >
                   <button 
                      onClick={execute} 
