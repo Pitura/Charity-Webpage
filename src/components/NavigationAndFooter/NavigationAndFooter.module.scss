@@ -27,6 +27,12 @@
       scroll-behavior: smooth;
    }
 }
+.acc_management_acc{
+   font-family: 'Open Sans', sans-serif;
+   font-size: 0.7rem;
+   line-height: 1.1rem;
+   font-weight: 600;
+}
 .acc_management_btn{
    cursor: pointer;
    background-color: transparent;
@@ -36,6 +42,7 @@
    font-size: 0.7rem;
    line-height: 1.1rem;
    border: none;
+   transition: 333ms;
    &:hover{
       background-color: rgba($color-yellow, 0.5);
    }
@@ -156,6 +163,7 @@
    font-size: 0.8rem;
    line-height: 1.2rem;
    border: none;
+   transition: 333ms;
    &:hover{
       background-color: rgba($color-yellow, 0.5);
    }

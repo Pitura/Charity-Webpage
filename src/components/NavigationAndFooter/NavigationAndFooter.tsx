@@ -25,6 +25,13 @@ const NavigationAndFooter: FC<Props> = ({ children }) => {
       setUserLogged(sessionStorage.getItem("user") || "");
    }, [router.route]);
 
+  const determinePath = (path: string) => {
+    if(router.route === '/'){
+      return `#${path}`;
+    }
+    return `/#${path}`;
+  }
+
   return (
     <>
       <button
@@ -46,7 +53,7 @@ const NavigationAndFooter: FC<Props> = ({ children }) => {
       >
         <div className={style.acc_management_box}>
           {userLogged && (
-            <div className={style.acc_management_btn}>
+            <div className={style.acc_management_acc}>
               {`Cześć ${userLogged}!`}
             </div>
           )}
@@ -90,40 +97,35 @@ const NavigationAndFooter: FC<Props> = ({ children }) => {
         </div>
         <ul>
           <NavigationButton
-            link="/#home"
-            id="home"
+            link={determinePath('home')}
             execute={() => `${setActiveButton(1)} ${setBurgerOpen(false)}`}
             state={activeButton}
             index={1}
             text="Start"
           />
           <NavigationButton
-            link="/#info"
-            id="info"
+            link={determinePath('info')}
             execute={() => `${setActiveButton(2)} ${setBurgerOpen(false)}`}
             state={activeButton}
             index={2}
             text="O co chodzi"
           />
           <NavigationButton
-            link="/#about"
-            id="about"
+            link={determinePath('about')}
             execute={() => `${setActiveButton(3)} ${setBurgerOpen(false)}`}
             state={activeButton}
             index={3}
             text="O nas"
           />
           <NavigationButton
-            link="/#who"
-            id="who"
+            link={determinePath('who')}
             execute={() => `${setActiveButton(4)} ${setBurgerOpen(false)}`}
             state={activeButton}
             index={4}
             text="Fundacja i organizacje"
           />
           <NavigationButton
-            link="/#contact"
-            id="contact"
+            link={determinePath('contact')}
             execute={() => `${setActiveButton(5)} ${setBurgerOpen(false)}`}
             state={activeButton}
             index={5}

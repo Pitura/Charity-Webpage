@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import style from "./login.module.scss";
 
 const Login: FC = () => {
+  
   const router = useRouter();
 
   const [errorMsg, setErrorMsg] = useState<boolean>(false);
