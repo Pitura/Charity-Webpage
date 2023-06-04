@@ -70,7 +70,7 @@ const Login: FC = () => {
               value={`${loginData.password}`}
               type="password"
               name="password"
-              pattern="^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$"
+              pattern="^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^<>&*])[a-zA-Z0-9!@#$%^<>&*]{8,20}$"
             />
           </div>
           {errorMsg && (
